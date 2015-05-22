@@ -1,0 +1,41 @@
+<head>
+  <title>EasySearchDemo</title>
+</head>
+
+<body>
+  <h1>EasySearch demo!</h1>
+
+  <div>
+      <h2>List of cats</h2>
+    {{#each cats}}
+      {{> cat}}
+      <br/>
+    {{/each}}
+  </div>
+
+  <div>
+      <h2>Cat search</h2>
+    {{> searchBox}}
+  </div>
+
+</body>
+
+<template name="searchBox">
+    <!--replace index="cats" with the name of your collection-->
+  {{> esInput index="cats" placeholder="Search..." }}
+
+    <ul>
+      {{#esEach index="cats"}}
+          {{> cat}}
+        <br/>
+      {{/esEach}}
+    </ul>
+</template>
+
+<template name="cat">
+    <div>
+        Cat name: {{name}}
+      <br/>
+        Fur color: {{furColor}}
+    </div>
+</template>
